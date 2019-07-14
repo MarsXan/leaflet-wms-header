@@ -1,15 +1,22 @@
 # leaflet-wms-header
-Custom headers on Leaflet TileLayer WMS.
-It's a simple plugin that allow to set custom header for WMS interface.
+
+It's a simple plugin for `leaflet.js` that allows setting custom headers for WMS interface.
 
 It works with javascript and typescript without any dependencies!
 
-Based on https://github.com/Leaflet/Leaflet/issues/2091#issuecomment-302706529.
+> Based on [this idea](https://github.com/Leaflet/Leaflet/issues/2091#issuecomment-302706529)
+
+## Usage
 
 ### Javascript
+
+1. install using npm or [🔽 download here](https://raw.githubusercontent.com/map-ir/leaflet-wms-header/master/index.js)
+
 ```sh
 $ npm install leaflet leaflet-wms-header --save
 ```
+
+2. add the javascript to your project:
 
 ```html
 <!-- Assuming your project root is "../" -->
@@ -17,8 +24,9 @@ $ npm install leaflet leaflet-wms-header --save
 <script src="../node_modules/leaflet-wms-header/index.js"></script> 
 ```
 
-```js
+3. use it like so:
 
+```js
 // YOUR LEAFLET CODE
 
 var wmsLayer = L.TileLayer.wmsHeader(
@@ -29,16 +37,23 @@ var wmsLayer = L.TileLayer.wmsHeader(
         transparent: true,
     },
     [
-        { header: 'Authorization', value: 'JWT ' + MYAUTHTOKEN },
-        { header: 'content-type', value: 'text/plain'},
+        { header: 'custom header', value: 'text/plain'},
+        { header: 'x-api-key', value: '<your api key>' },
     ]
 ).addTo(map);
 ```
 
+
 ### Typescript
+
+1. install using npm or [🔽 download here](https://raw.githubusercontent.com/map-ir/leaflet-wms-header/master/index.d.ts)
+
 ```sh
 $ npm install leaflet @types/leaflet leaflet-wms-header --save
 ```
+
+2. use it like this:
+
 ```ts
 import * as L from 'leaflet';
 import 'leaflet-wms-header';
