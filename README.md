@@ -72,3 +72,39 @@ let wmsLayer: L.TileLayer.WMSHeader = L.TileLayer.wmsHeader(
     ]
 ).addTo(map);
 ```
+3. or you can use it like this:
+
+
+```ts
+import * as L from 'leaflet';
+import 'leaflet-wms-header';
+
+// YOUR LEAFLET CODE
+
+leafLetOptions;
+
+constructor() {
+    const wmsLayer: L.TileLayer.WMSHeader = new L.TileLayer.WMSHeader(
+      'https://map.ir/shiveh',
+      {
+        layers: 'Shiveh:Shiveh',
+        format: 'image/png',
+        transparent: true,
+      }, [
+        {header: 'x-api-key', value: MAP_IR_TOKEN}
+      ]
+    );
+    this.leafLetOptions = {
+      layers: [
+        wmsLayer
+      ]
+    };
+  }
+```
+```html
+<div
+     [leafletOptions]="leafLetOptions"
+     leaflet
+     class="map"
+     ></div>
+```
